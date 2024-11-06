@@ -16,6 +16,7 @@ const Settings = ({ toggleTheme }) => {
   const buttonRef = useRef(null);
   const { theme } = useContext(ThemeContext);
 
+  
   const toggleMenu = (event) => {
     setIsSettingsOpen((prevState) => !prevState);
     event.stopPropagation();
