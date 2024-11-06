@@ -5,6 +5,7 @@ const ChatWindowContainer = styled.div`
   flex-grow: 1;
   padding: 20px;
   overflow-y: auto;
+  z-index: 0;
   background-color: ${(props) => props.theme.chatBg};
 `;
 
