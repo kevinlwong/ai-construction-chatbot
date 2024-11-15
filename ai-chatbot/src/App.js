@@ -6,6 +6,7 @@ import Settings from "./components/Settings";
 import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme, GlobalStyle } from "./themes";
 import styled from "styled-components";
+import ChatApp from "./components/ChatApp";
 
 const AppContainer = styled.div`
   display: flex;
@@ -22,9 +23,16 @@ const ContentContainer = styled.div`
   position: relative;
 `;
 
+const ChatContainer = styled.div`
+  flex-grow: 1;
+  overflow-y: auto;
+`;
+
 function App() {
   const [theme, setTheme] = useState("light");
   const toggleTheme = () => setTheme(theme === "light" ? "dark" : "light");
+
+  const [response, setResponse] = useState([]);
 
   return (
     <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
@@ -33,8 +41,12 @@ function App() {
         <Sidebar />
         <ContentContainer>
           <Settings toggleTheme={toggleTheme} />
-          <ChatWindow />
-          <ChatInput />
+          <ChatContainer>
+            <ChatWindow response={response} />
+          </ChatContainer>
+          <ChatInput setResponse={setResponse} />
+          {/* <ChatApp response={response} setResponse={setResponse} /> Pass as props */}
+
         </ContentContainer>
       </AppContainer>
     </ThemeProvider>

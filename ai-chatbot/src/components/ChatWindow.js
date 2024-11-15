@@ -9,10 +9,13 @@ const ChatWindowContainer = styled.div`
   background-color: ${(props) => props.theme.chatBg};
 `;
 
-const ChatWindow = () => {
+const ChatWindow = ({response}) => {
   return (
     <ChatWindowContainer>
-      <p>Chat history will appear here...</p>
+      <div>
+            <p>{response ? response : "Chat history will appear here..."}</p>
+        </div>
+
     </ChatWindowContainer>
   );
 };
