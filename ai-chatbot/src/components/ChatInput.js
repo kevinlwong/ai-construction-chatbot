@@ -37,7 +37,7 @@ const ChatInput = ({ setResponse }) => {
   const handleSubmit = async () => {
     try {
       const res = await axios.post(
-        "https://ai-construction-chatbot.onrender.com",
+        "https://ai-construction-chatbot.onrender.com/api/chat",
         { prompt: userInput }
       );
       setResponse(res.data.response);
