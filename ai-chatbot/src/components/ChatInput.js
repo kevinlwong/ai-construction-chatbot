@@ -30,27 +30,30 @@ const FileButton = styled.label`
   cursor: pointer;
 `;
 
-const ChatInput = ({setResponse}) => {
+const ChatInput = ({ setResponse }) => {
   const [userInput, setUserInput] = useState("");
   // const [response, setResponse] = useState("");
 
   const handleSubmit = async () => {
     try {
-      const res = await axios.post('https://your-backend.onrender.com/api/chat', {prompt: userInput});
+      const res = await axios.post(
+        "https://ai-construction-chatbot.onrender.com",
+        { prompt: userInput }
+      );
       setResponse(res.data.response);
     } catch (error) {
       console.error("Error", error);
-      setResponse("An error occurred while generating the response.")
+      setResponse("An error occurred while generating the response.");
     }
   };
 
-
-    return (
+  return (
     <ChatInputContainer>
-      <Input 
-        value={userInput} 
-        onChange={(e) => setUserInput(e.target.value)} 
-        placeholder="Type your message here..." />
+      <Input
+        value={userInput}
+        onChange={(e) => setUserInput(e.target.value)}
+        placeholder="Type your message here..."
+      />
       <FileButton>
         📎
         <input type="file" style={{ display: "none" }} />
