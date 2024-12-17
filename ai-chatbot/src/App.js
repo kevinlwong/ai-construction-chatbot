@@ -6,7 +6,6 @@ import Settings from "./components/Settings";
 import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme, GlobalStyle } from "./themes";
 import styled from "styled-components";
-import ChatApp from "./components/ChatApp";
 
 const AppContainer = styled.div`
   display: flex;

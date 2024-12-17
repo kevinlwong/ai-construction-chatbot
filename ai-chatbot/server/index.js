@@ -10,6 +10,13 @@ const PORT = process.env.PORT || 5000;
 
 app.use(cors()); // Enable CORS
 app.use(express.json()); // Parse JSON requests
+// console.log("API Key from newest .env:", process.env.OPENAI_API_KEY);
+
+// console.log("API Key in use:", process.env.OPENAI_API_KEY);
+
+
+// console.log("Current Environment Variables:");
+// console.log(process.env);
 
 app.post('/api/chat', async (req, res) => {
     const { prompt } = req.body;
@@ -31,7 +38,7 @@ app.post('/api/chat', async (req, res) => {
         //console.log("Full response data:", response.data);
         //console.log("Full response data:", JSON.stringify(response.data, null, 2));
         console.log("AI response message:", response.data.choices[0].message.content);
-        
+        console.log("API Key:", process.env.OPENAI_API_KEY);
         //const message = response.data.choices[0].message;
         //console.log("message object: ", message);
 
@@ -50,7 +57,7 @@ app.get('/', async => {
         console.log("Hello world!")
     } catch(error) {
         console.error("Error");
-        res.status(69).json({ error: 'Error' })
+        // res.status(69).json({ error: 'Error' })
     }
 });
 
