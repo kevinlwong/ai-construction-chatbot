@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "homepage": ".",
-  "proxy": "http://localhost:5000/",
+  "proxy": "https://ai-construction-chatbot.onrender.com",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
