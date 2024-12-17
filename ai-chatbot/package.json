@@ -1,7 +1,7 @@
 {
   "name": "ai-chatbot",
   "version": "0.1.0",
-  "homepage": "https://kevinlwong.github.io/ai-construction-chatbot",
+  "homepage": ".",
   "proxy": "http://localhost:5000/",
   "private": true,
   "dependencies": {
