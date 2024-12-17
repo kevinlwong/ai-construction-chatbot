@@ -8,8 +8,18 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors()); // Enable CORS
-app.use(express.json()); // Parse JSON requests
+// Allow CORS for your frontend URL
+const corsOptions = {
+    origin: 'https://ai-construction-chatbot-frontend-9vhd.onrender.com', // Replace with your actual frontend domain
+    methods: ['GET', 'POST', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+  };
+  
+  app.use(cors(corsOptions));
+  app.use(express.json());
+  
+  // Handle the preflight OPTIONS request
+  app.options('*', cors(corsOptions)); // Allow all preflight requests
 // console.log("API Key from newest .env:", process.env.OPENAI_API_KEY);
 
 // console.log("API Key in use:", process.env.OPENAI_API_KEY);
