@@ -36,7 +36,7 @@ const ChatInput = ({setResponse}) => {
 
   const handleSubmit = async () => {
     try {
-      const res = await axios.post('/api/chat', {prompt: userInput});
+      const res = await axios.post('https://your-backend.onrender.com/api/chat', {prompt: userInput});
       setResponse(res.data.response);
     } catch (error) {
       console.error("Error", error);
